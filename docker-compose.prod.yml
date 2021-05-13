@@ -1,0 +1,6 @@
+version: "3" #version of docker compose
+services:    #each service is a container to will be created
+    node-app: #name of the service or container
+        environment: 
+            - NODE_ENV=development
+        command: node index.js #this override the Dockerfile CMD

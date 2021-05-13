@@ -1,0 +1,19 @@
+###---NOTES----###
+# 1-If the Dockerfile changes, the docker-compose do not know when rebuild th image
+# you need to specify with --build
+# 2- If you run docker-compose up for second time, the image does not rebuild
+
+
+version: "3" #version of docker compose
+services:    #each service is a container to will be created
+    node-app: #name of the service or container 
+        build: .
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./:/app
+            - /app/node_modules
+        environment:
+            - PORT=3000
+        # env_file: 
+        #     - ./.env
